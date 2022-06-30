@@ -20,9 +20,8 @@ class ProductPage(BasePage):
         self.should_be_cost_basket(product_price)
 
     def should_be_success_message(self, product_name):
-        access_message = self.browser.find_element(*ProductPageLocators.ADD_PRODUCT_SUCCESS_MASSAGES)
         product_name_in_success_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_SUCCESS_MESSAGES)
-        assert 'был добавлен в вашу корзину' in access_message.text and product_name == product_name_in_success_message.text,\
+        assert product_name == product_name_in_success_message.text,\
             f"Название товара из корзины не соответствуют названию товара в сообщении.\
             product_name_in_success_message: {product_name_in_success_message.text}\n\
             product_name_in_basket: {product_name}"

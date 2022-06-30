@@ -1,1 +1,1 @@
-pytest -v -s --tb=short
+pytest -v --tb=line --language=en -m need_review
