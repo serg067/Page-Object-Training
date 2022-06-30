@@ -12,7 +12,6 @@ class LoginPage(BasePage):
     def should_be_login_url(self):
         button = self.browser.find_element(*LoginPageLocators.LOGIN_URL)
         button.click()
-        time.sleep(3)
         assert 'login' in self.browser.current_url
 
     def should_be_login_form(self):

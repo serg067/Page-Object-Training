@@ -7,7 +7,6 @@ from .pages.locators import ProductPageLocators
 import pytest
 
 
-@pytest.mark.skip
 @pytest.mark.parametrize('link', [*range(7), pytest.param(7, marks=pytest.mark.xfail(reason="won't fix")), *range(8, 10)])
 def test_guest_can_go_to_login_page(browser, link):
     link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{link}"
@@ -18,7 +17,7 @@ def test_guest_can_go_to_login_page(browser, link):
     page.should_be_success_page(page.get_product_name(), page.get_product_price())
 
 
-@pytest.mark.skip
+@pytest.mark.xfail(reason="специально добавлена сломанная проверка")
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     page = ProductPage(browser, link)
@@ -27,7 +26,6 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page.should_not_be_success_message()
 
 
-@pytest.mark.skip
 def test_guest_cant_see_success_message(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     page = ProductPage(browser, link)
@@ -35,7 +33,7 @@ def test_guest_cant_see_success_message(browser):
     page.should_not_be_success_message()
 
 
-@pytest.mark.skip
+@pytest.mark.xfail(reason="специально добавлена сломанная проверка")
 def test_message_disappeared_after_adding_product_to_basket(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     page = ProductPage(browser, link)
