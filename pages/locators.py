@@ -19,3 +19,7 @@ class ProductPageLocators:
     PRODUCT_PRICE = (By.CSS_SELECTOR, "p.price_color")
     TOTAL_COST_BASKET_IN_SUCCESS_MESSAGES = (By.CSS_SELECTOR, "#messages div:nth-of-type(3) p strong")
 
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

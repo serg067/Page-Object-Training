@@ -32,3 +32,11 @@ class ProductPage(BasePage):
         assert product_price == basket_total_cost.text,\
             f"Сумма добавленных товаров не равна итоговой сумме покупки. product_price: {product_price},\
             basket_total_cost: {basket_total_cost.text}"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADD_PRODUCT_SUCCESS_MASSAGES), \
+            "Success message is presented, but should not be"
+
+    def should_success_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.ADD_PRODUCT_SUCCESS_MASSAGES), \
+            "Success message is not disappeared, but should be"
